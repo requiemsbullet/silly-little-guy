@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://shk5v4ao52nw"]
+
+[ext_resource type="Texture2D" uid="uid://bhiqttkgrdljb" path="res://assets/images/playersprite/littleguy.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bkyij1iq4qgc3" path="res://scenes/movement.gd" id="1_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 0, 14, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(14, 0, 14, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xcmla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="player" type="CharacterBody2D" unique_id=974987174]
+scale = Vector2(3, 3)
+script = ExtResource("1_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1090153937]
+texture_filter = 1
+position = Vector2(7.3333335, 10)
+sprite_frames = SubResource("SpriteFrames_xcmla")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.04396437

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b121xc657rrjn"]
+
+[ext_resource type="Texture2D" uid="uid://cpalytryhaojx" path="res://assets/images/secondarysprite/notsolittleguy.png" id="1_rkwwn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx8sn"]
+atlas = ExtResource("1_rkwwn")
+region = Rect2(0, 0, 18, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppgk2"]
+atlas = ExtResource("1_rkwwn")
+region = Rect2(18, 0, 18, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wfyh"]
+atlas = ExtResource("1_rkwwn")
+region = Rect2(0, 63, 18, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sugp2"]
+atlas = ExtResource("1_rkwwn")
+region = Rect2(18, 63, 18, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sugp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx8sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppgk2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wfyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sugp2")
+}],
+"loop": 1,
+"name": &"side profile",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcmla"]
+size = Vector2(16, 61.511826)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1520674787]
+texture_filter = 3
+position = Vector2(63, 206.25)
+scale = Vector2(1, 1.0079365)
+sprite_frames = SubResource("SpriteFrames_sugp2")
+animation = &"side profile"
+autoplay = "side profile"
+frame_progress = 0.92788225
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1679858878]
+position = Vector2(-1, 0.74409485)
+shape = SubResource("RectangleShape2D_xcmla")
