@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhiqttkgrdljb"
-path="res://.godot/imported/littleguy.png-4b82c53062fccbf1967b9fd8bea9b547.ctex"
+uid="uid://cpalytryhaojx"
+path="res://.godot/imported/notsolittleguy.png-51f0f1471e1c11286e1a0fc42a69941e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/playersprite/littleguy.png"
-dest_files=["res://.godot/imported/littleguy.png-4b82c53062fccbf1967b9fd8bea9b547.ctex"]
+source_file="res://assets/images/characters/notsolittleguy.png"
+dest_files=["res://.godot/imported/notsolittleguy.png-51f0f1471e1c11286e1a0fc42a69941e.ctex"]
 
 [params]
 

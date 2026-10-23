@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://caw2038ntrndm"]
+
+[ext_resource type="Script" uid="uid://b60qtpslmnly3" path="res://scripts/food.gd" id="1_af40f"]
+[ext_resource type="Texture2D" uid="uid://yd4j01tlq2ho" path="res://assets/images/food/cookie.png" id="1_xven1"]
+[ext_resource type="AudioStream" uid="uid://r8x7pk4krqn7" path="res://sounds/nom.wav" id="3_370ap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 4.0
+
+[node name="food" type="Area2D" unique_id=1584939598]
+script = ExtResource("1_af40f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2069335262]
+texture = ExtResource("1_xven1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=491550244]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=675696341]
+stream = ExtResource("3_370ap")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

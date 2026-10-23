@@ -21,8 +21,8 @@ window/size/viewport_width=480
 window/size/viewport_height=270
 window/size/mode=4
 window/size/resizable=false
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [input]
 
@@ -57,4 +57,5 @@ eat={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

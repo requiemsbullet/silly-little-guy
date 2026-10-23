@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpalytryhaojx"
-path="res://.godot/imported/notsolittleguy.png-fdc6a37aba92f06a6d54d00307cfa295.ctex"
+uid="uid://yd4j01tlq2ho"
+path="res://.godot/imported/cookie.png-d67e223abeca336fb46f9fec1bbb442f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/secondarysprite/notsolittleguy.png"
-dest_files=["res://.godot/imported/notsolittleguy.png-fdc6a37aba92f06a6d54d00307cfa295.ctex"]
+source_file="res://assets/images/food/cookie.png"
+dest_files=["res://.godot/imported/cookie.png-d67e223abeca336fb46f9fec1bbb442f.ctex"]
 
 [params]
 
