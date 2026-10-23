@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://f43mocnnl4cp"]
+
+[ext_resource type="Script" uid="uid://cmyo2i31tjoxe" path="res://mainmenu.gd" id="1_7yvfd"]
+[ext_resource type="Texture2D" uid="uid://djqttnkur0aee" path="res://assets/images/menu/mainmenubg.png" id="2_dfy5j"]
+[ext_resource type="Texture2D" uid="uid://bhiqttkgrdljb" path="res://assets/images/characters/littleguy.png" id="3_85riq"]
+[ext_resource type="Texture2D" uid="uid://bd445ar0afq6n" path="res://assets/images/menu/startbutton.png" id="4_wf3n4"]
+[ext_resource type="Texture2D" uid="uid://dtfljspt1vfci" path="res://assets/images/menu/optionsbutton.png" id="5_h73c4"]
+[ext_resource type="Texture2D" uid="uid://dmrymk6pv67bx" path="res://assets/images/menu/quitbutton.png" id="6_uui5l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hago"]
+atlas = ExtResource("3_85riq")
+region = Rect2(0, 0, 14, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjjcl"]
+atlas = ExtResource("3_85riq")
+region = Rect2(14, 0, 14, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hago")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjjcl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="mainmenu" type="Node2D" unique_id=811375857]
+script = ExtResource("1_7yvfd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=571789287]
+position = Vector2(240, 136)
+texture = ExtResource("2_dfy5j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1586569430]
+position = Vector2(342, 230)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.05395173
+
+[node name="buttonmanager" type="Control" parent="." unique_id=1898934036]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start" type="TextureButton" parent="buttonmanager" unique_id=1654078238]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 138.0
+offset_right = 98.0
+offset_bottom = 167.0
+texture_normal = ExtResource("4_wf3n4")
+texture_pressed = ExtResource("4_wf3n4")
+texture_hover = ExtResource("4_wf3n4")
+texture_disabled = ExtResource("4_wf3n4")
+texture_focused = ExtResource("4_wf3n4")
+
+[node name="options" type="TextureButton" parent="buttonmanager" unique_id=751556707]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 170.0
+offset_right = 98.0
+offset_bottom = 199.0
+texture_normal = ExtResource("5_h73c4")
+
+[node name="quit" type="TextureButton" parent="buttonmanager" unique_id=939429116]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 202.0
+offset_right = 98.0
+offset_bottom = 231.0
+texture_normal = ExtResource("6_uui5l")
+
+[connection signal="pressed" from="buttonmanager/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="buttonmanager/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="buttonmanager/quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://f43mocnnl4cp"]
+
+[ext_resource type="Script" uid="uid://cmyo2i31tjoxe" path="res://mainmenu.gd" id="1_7yvfd"]
+[ext_resource type="Texture2D" uid="uid://djqttnkur0aee" path="res://assets/images/menu/mainmenubg.png" id="2_dfy5j"]
+[ext_resource type="Texture2D" uid="uid://bhiqttkgrdljb" path="res://assets/images/characters/littleguy.png" id="3_85riq"]
+[ext_resource type="Texture2D" uid="uid://bd445ar0afq6n" path="res://assets/images/menu/startbutton.png" id="4_wf3n4"]
+[ext_resource type="Texture2D" uid="uid://dtfljspt1vfci" path="res://assets/images/menu/optionsbutton.png" id="5_h73c4"]
+[ext_resource type="Texture2D" uid="uid://fempunh0edcc" path="res://assets/images/menu/starthover.png" id="5_wf3n4"]
+[ext_resource type="Texture2D" uid="uid://b5734p0sh4xej" path="res://assets/images/menu/optionshover.png" id="6_85riq"]
+[ext_resource type="Texture2D" uid="uid://dmrymk6pv67bx" path="res://assets/images/menu/quitbutton.png" id="6_uui5l"]
+[ext_resource type="Texture2D" uid="uid://cxsv2ugecwube" path="res://assets/images/menu/quithover.png" id="7_dfy5j"]
+[ext_resource type="Texture2D" uid="uid://dqeujo7c1gmdo" path="res://assets/images/menu/optionsmenu.png" id="10_h73c4"]
+[ext_resource type="Texture2D" uid="uid://b8btkub5pbw4a" path="res://assets/images/menu/exitbutton.png" id="11_4hago"]
+[ext_resource type="Script" uid="uid://d3k4thchhxu57" path="res://scenes/audiocontrol.gd" id="11_gjjcl"]
+[ext_resource type="Texture2D" uid="uid://ch5yont1x7he4" path="res://assets/images/menu/exithover.png" id="12_gjjcl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hago"]
+atlas = ExtResource("3_85riq")
+region = Rect2(0, 0, 14, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjjcl"]
+atlas = ExtResource("3_85riq")
+region = Rect2(14, 0, 14, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hago")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjjcl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_p1u0y"]
+color = Color(1, 1, 1, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_33x8s"]
+color = Color(0.6039216, 0, 0, 0.6039216)
+thickness = 4
+
+[node name="mainmenu" type="Node2D" unique_id=811375857]
+script = ExtResource("1_7yvfd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=571789287]
+position = Vector2(240, 136)
+texture = ExtResource("2_dfy5j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1586569430]
+position = Vector2(342, 230)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.41954833
+
+[node name="buttonmanager" type="Control" parent="." unique_id=1898934036]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start" type="TextureButton" parent="buttonmanager" unique_id=1654078238]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 138.0
+offset_right = 98.0
+offset_bottom = 167.0
+texture_normal = ExtResource("4_wf3n4")
+texture_pressed = ExtResource("5_wf3n4")
+texture_hover = ExtResource("5_wf3n4")
+
+[node name="options" type="TextureButton" parent="buttonmanager" unique_id=751556707]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 170.0
+offset_right = 98.0
+offset_bottom = 199.0
+texture_normal = ExtResource("5_h73c4")
+texture_pressed = ExtResource("6_85riq")
+texture_hover = ExtResource("6_85riq")
+
+[node name="quit" type="TextureButton" parent="buttonmanager" unique_id=939429116]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 202.0
+offset_right = 98.0
+offset_bottom = 231.0
+texture_normal = ExtResource("6_uui5l")
+texture_pressed = ExtResource("7_dfy5j")
+texture_hover = ExtResource("7_dfy5j")
+
+[node name="optionsmenu" type="Panel" parent="." unique_id=231336775]
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="optionsbackground" type="Sprite2D" parent="optionsmenu" unique_id=1876513508]
+position = Vector2(240, 136)
+texture = ExtResource("10_h73c4")
+
+[node name="HSlider" type="HSlider" parent="optionsmenu/optionsbackground" unique_id=686161044]
+offset_left = -85.0
+offset_top = -29.0
+offset_right = 72.0
+offset_bottom = -3.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_p1u0y")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_33x8s")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("11_gjjcl")
+
+[node name="exit" type="TextureButton" parent="optionsmenu" unique_id=672424074]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 179.0
+offset_right = 278.0
+offset_bottom = 208.0
+texture_normal = ExtResource("11_4hago")
+texture_pressed = ExtResource("12_gjjcl")
+texture_hover = ExtResource("12_gjjcl")
+
+[connection signal="pressed" from="buttonmanager/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="buttonmanager/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="buttonmanager/quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="optionsmenu/optionsbackground/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="optionsmenu/exit" to="." method="_on_back_options_pressed"]
