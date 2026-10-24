@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://8pnrbuligs4y"]
 
-[ext_resource type="PackedScene" uid="uid://bp3v5ib71h2kl" path="res://scenes/level.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://dlo15ad7hc4l4" path="res://scripts/leave.gd" id="3_sugp2"]
-[ext_resource type="PackedScene" uid="uid://cwi6ftaavbhnn" path="res://scenes/tallguy.tscn" id="4_jyhfs"]
-[ext_resource type="AudioStream" uid="uid://cuouckly0fbl" path="res://sounds/firstlevel.wav" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bp3v5ib71h2kl" path="res://scenes/level.tscn" id="1_j4d2a"]
+[ext_resource type="PackedScene" uid="uid://cwi6ftaavbhnn" path="res://scenes/tallguy.tscn" id="2_u81e1"]
+[ext_resource type="Script" uid="uid://dlo15ad7hc4l4" path="res://scripts/leave.gd" id="3_b6bv0"]
+[ext_resource type="AudioStream" uid="uid://cuouckly0fbl" path="res://sounds/firstlevel.wav" id="4_ubwgw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(20, 100)
 
 [node name="main" type="Node2D" unique_id=1278071956]
 
-[node name="levelroot" parent="." unique_id=1703712720 instance=ExtResource("1_o5qli")]
+[node name="levelroot" parent="." unique_id=1703712720 instance=ExtResource("1_j4d2a")]
 position = Vector2(-4, -2)
 
-[node name="tallguy" parent="." unique_id=1378372729 instance=ExtResource("4_jyhfs")]
+[node name="tallguy" parent="." unique_id=1378372729 instance=ExtResource("2_u81e1")]
 position = Vector2(296, 239)
 
 [node name="LeaveEnding" type="Area2D" parent="." unique_id=2026822090]
 position = Vector2(-10, 231)
-script = ExtResource("3_sugp2")
+script = ExtResource("3_b6bv0")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveEnding" unique_id=1129063845]
@@ -26,7 +26,7 @@ position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=752562837]
-stream = ExtResource("4_tbgi4")
+stream = ExtResource("4_ubwgw")
 volume_db = -5.0
 autoplay = true
 

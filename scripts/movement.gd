@@ -9,6 +9,7 @@ var appearence := "normal"
 var obesity := 0
 var is_crouching := false
 var was_on_floor := false
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var MAX_OBESITY : int
 @export var MEDIUM_OBESITY: int
@@ -41,6 +42,7 @@ func update_appearence():
 			sprite.play("obese_idle")
 		
 func _ready() -> void:
+	
 	obesity = GameState.obesity
 	scale = Vector2.ONE + scale_by * obesity
 	update_appearence()
@@ -53,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		$AudioStreamPlayer.play()
@@ -79,6 +81,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.play(appearence + "_idle")
 	if DialogueManager.is_dialog_active:
+		velocity.x = 0
+		sprite.play(appearence + "_idle")
+	if SceneTransition.tp:
 		velocity.x = 0
 		sprite.play(appearence + "_idle")
 	

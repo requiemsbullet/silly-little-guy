@@ -10,5 +10,5 @@ func _on_body_entered(body):
 
 	if body.is_in_group("player"):
 		print("Player detected! Loading Level 2...")
-		get_tree().change_scene_to_file(
+		SceneTransition.change_scene_file(
 			"res://scenes/levels/main2.tscn")
