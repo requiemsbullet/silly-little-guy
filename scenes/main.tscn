@@ -8,6 +8,7 @@
 [node name="main" type="Node2D" unique_id=1278071956]
 
 [node name="levelroot" parent="." unique_id=1703712720 instance=ExtResource("1_o5qli")]
+position = Vector2(-4, -2)
 
 [node name="food" parent="." unique_id=1584939598 instance=ExtResource("2_0wfyh")]
 position = Vector2(88, 227)
