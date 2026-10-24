@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b263fwakuaww0"]
+
+[ext_resource type="PackedScene" uid="uid://la5twl1apw5g" path="res://scenes/player.tscn" id="1_hna2c"]
+[ext_resource type="AudioStream" uid="uid://vnm6m2pkijfl" path="res://sounds/parkour.wav" id="2_vigcw"]
+[ext_resource type="PackedScene" uid="uid://byfutxcpd0l6d" path="res://pausemenu.tscn" id="3_pooci"]
+[ext_resource type="PackedScene" uid="uid://4r70as17lpxc" path="res://scenes/levels/level_3.tscn" id="4_suche"]
+[ext_resource type="PackedScene" uid="uid://caw2038ntrndm" path="res://scenes/food.tscn" id="5_vigcw"]
+
+[node name="Node2D" type="Node2D" unique_id=549133655]
+
+[node name="Player" parent="." unique_id=336984372 groups=["player"] instance=ExtResource("1_hna2c")]
+position = Vector2(11, 34)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=236144823]
+stream = ExtResource("2_vigcw")
+volume_db = -5.0
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=948704601]
+layer = 10
+
+[node name="pausemenu" parent="CanvasLayer" unique_id=1216540044 instance=ExtResource("3_pooci")]
+visible = false
+offset_top = -1.0
+offset_bottom = -1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" parent="." unique_id=1528258400 instance=ExtResource("4_suche")]
+position = Vector2(0, -1)
+
+[node name="food" parent="." unique_id=1584939598 instance=ExtResource("5_vigcw")]
+position = Vector2(103, 166)
+foodsprite = 3
+
+[node name="food2" parent="." unique_id=383186022 instance=ExtResource("5_vigcw")]
+position = Vector2(353, 56)
+foodsprite = 4

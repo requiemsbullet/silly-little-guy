@@ -104,9 +104,9 @@ texture = ExtResource("10_h73c4")
 
 [node name="HSlider" type="HSlider" parent="optionsmenu/optionsbackground" unique_id=686161044]
 offset_left = -85.0
-offset_top = -29.0
+offset_top = -34.0
 offset_right = 72.0
-offset_bottom = -3.0
+offset_bottom = -8.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/slider = SubResource("StyleBoxLine_p1u0y")

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://byfutxcpd0l6d"]
+
+[ext_resource type="Script" uid="uid://dywxi31ato22t" path="res://pausemenu.gd" id="1_qu36y"]
+[ext_resource type="Texture2D" uid="uid://dqeujo7c1gmdo" path="res://assets/images/menu/optionsmenu.png" id="2_v7fcu"]
+[ext_resource type="Script" uid="uid://d3k4thchhxu57" path="res://scripts/audiocontrol.gd" id="3_ifua1"]
+[ext_resource type="Texture2D" uid="uid://c820jtsb0m1n" path="res://assets/images/menu/resumebutton.png" id="4_bywfp"]
+[ext_resource type="Texture2D" uid="uid://bf3sly5qffnfn" path="res://assets/images/menu/resumehover.png" id="5_ennqi"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_pjcrl"]
+color = Color(1, 1, 1, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_edbdd"]
+color = Color(0.6039216, 0, 0, 0.6039216)
+thickness = 4
+
+[node name="pausemenu" type="Control" unique_id=1216540044]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qu36y")
+
+[node name="optionsmenu" type="Panel" parent="." unique_id=603715034]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="optionsbackground" type="Sprite2D" parent="optionsmenu" unique_id=903522173]
+position = Vector2(240, 136)
+texture = ExtResource("2_v7fcu")
+
+[node name="HSlider" type="HSlider" parent="optionsmenu/optionsbackground" unique_id=1292585853]
+offset_left = -85.0
+offset_top = -34.0
+offset_right = 72.0
+offset_bottom = -8.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_pjcrl")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_edbdd")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("3_ifua1")
+
+[node name="exit" type="TextureButton" parent="optionsmenu" unique_id=468559296]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 179.0
+offset_right = 278.0
+offset_bottom = 208.0
+texture_normal = ExtResource("4_bywfp")
+texture_pressed = ExtResource("5_ennqi")
+texture_hover = ExtResource("5_ennqi")
+
+[connection signal="pressed" from="optionsmenu/exit" to="." method="_on_resume_pressed"]

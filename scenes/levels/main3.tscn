@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bwx1xqtla0eo2"]
+
+[ext_resource type="PackedScene" uid="uid://la5twl1apw5g" path="res://scenes/player.tscn" id="1_8upqq"]
+[ext_resource type="AudioStream" uid="uid://vnm6m2pkijfl" path="res://sounds/parkour.wav" id="2_j535p"]
+[ext_resource type="PackedScene" uid="uid://byfutxcpd0l6d" path="res://pausemenu.tscn" id="3_66w1l"]
+[ext_resource type="PackedScene" uid="uid://cqvn2a4ewg54g" path="res://scenes/levels/level_2.tscn" id="4_t5uju"]
+
+[node name="Node2D" type="Node2D" unique_id=887251237]
+
+[node name="Player" parent="." unique_id=336984372 groups=["player"] instance=ExtResource("1_8upqq")]
+position = Vector2(13, 99)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1339422392]
+stream = ExtResource("2_j535p")
+volume_db = -5.0
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=595396817]
+layer = 10
+
+[node name="pausemenu" parent="CanvasLayer" unique_id=1216540044 instance=ExtResource("3_66w1l")]
+offset_top = -1.0
+offset_bottom = -1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="level_2" parent="." unique_id=968191378 instance=ExtResource("4_t5uju")]

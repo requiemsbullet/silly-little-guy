@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cwi6ftaavbhnn" path="res://scenes/tallguy.tscn" id="2_u81e1"]
 [ext_resource type="Script" uid="uid://dlo15ad7hc4l4" path="res://scripts/leave.gd" id="3_b6bv0"]
 [ext_resource type="AudioStream" uid="uid://cuouckly0fbl" path="res://sounds/firstlevel.wav" id="4_ubwgw"]
+[ext_resource type="PackedScene" uid="uid://byfutxcpd0l6d" path="res://pausemenu.tscn" id="5_u81e1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(20, 100)
@@ -24,6 +25,14 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeaveEnding" unique_id=1129063845]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=391573084]
+layer = 10
+
+[node name="pausemenu" parent="CanvasLayer" unique_id=1216540044 instance=ExtResource("5_u81e1")]
+offset_top = -1.0
+offset_bottom = -1.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=752562837]
 stream = ExtResource("4_ubwgw")

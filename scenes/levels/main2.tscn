@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dig8do7les2ia" path="res://scenes/levels/level_1.tscn" id="1_gu4iw"]
 [ext_resource type="PackedScene" uid="uid://la5twl1apw5g" path="res://scenes/player.tscn" id="2_176wj"]
 [ext_resource type="AudioStream" uid="uid://vnm6m2pkijfl" path="res://sounds/parkour.wav" id="3_2a5sk"]
+[ext_resource type="PackedScene" uid="uid://byfutxcpd0l6d" path="res://pausemenu.tscn" id="4_n5jx3"]
 
 [node name="Node2D" type="Node2D" unique_id=566698368]
 
@@ -15,3 +16,12 @@ position = Vector2(36, 176)
 stream = ExtResource("3_2a5sk")
 volume_db = -5.0
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=9282665]
+layer = 10
+
+[node name="pausemenu" parent="CanvasLayer" unique_id=1216540044 instance=ExtResource("4_n5jx3")]
+visible = false
+offset_top = -1.0
+offset_bottom = -1.0
+metadata/_edit_use_anchors_ = true
