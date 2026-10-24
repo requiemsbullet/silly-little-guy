@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dtfcjtnyed6iw"]
+
+[ext_resource type="Script" uid="uid://bx2a3s25jcghi" path="res://scripts/fatty.gd" id="1_ibs6v"]
+[ext_resource type="Texture2D" uid="uid://bri6qyofdcprj" path="res://assets/images/menu/interaction_box.png" id="1_pl1t4"]
+[ext_resource type="Texture2D" uid="uid://b4k2y3i0br1lp" path="res://assets/images/characters/fatty.png" id="2_ibs6v"]
+[ext_resource type="AudioStream" uid="uid://d2x05dao8ts6i" path="res://sounds/talkbeep.wav" id="3_7hr3a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8vjr"]
+atlas = ExtResource("2_ibs6v")
+region = Rect2(0, 0, 28, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v578x"]
+atlas = ExtResource("2_ibs6v")
+region = Rect2(28, 0, 28, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lvkl"]
+atlas = ExtResource("2_ibs6v")
+region = Rect2(56, 0, 28, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3gkh"]
+atlas = ExtResource("2_ibs6v")
+region = Rect2(84, 0, 28, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8vjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v578x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lvkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3gkh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scgk8"]
+size = Vector2(40.5, 44.25)
+
+[node name="fatty" type="Area2D" unique_id=637701469]
+script = ExtResource("1_ibs6v")
+
+[node name="InteractionBox" type="Sprite2D" parent="." unique_id=1158429384]
+position = Vector2(0, -50)
+scale = Vector2(0.31666666, 0.31666666)
+texture = ExtResource("1_pl1t4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=591022176]
+position = Vector2(0, -21)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.8676828
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=731142090]
+position = Vector2(-0.25, -21.875)
+shape = SubResource("RectangleShape2D_scgk8")
+
+[node name="beep" type="AudioStreamPlayer" parent="." unique_id=1557438674]
+stream = ExtResource("3_7hr3a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

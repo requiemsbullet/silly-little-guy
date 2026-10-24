@@ -57,14 +57,14 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		$AudioStreamPlayer.play()
-		velocity.y = JUMP_VELOCITY + obesity + MAX_OBESITY
+		velocity.y = JUMP_VELOCITY + obesity * 10
 		await $AudioStreamPlayer.finished
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction != 0:
-		velocity.x = direction * (SPEED - obesity + MAX_OBESITY)
+		velocity.x = direction * (SPEED - obesity * 13)
 		sprite.play(appearence + "_walk")
 		sprite.flip_h = direction < 0
 	else:

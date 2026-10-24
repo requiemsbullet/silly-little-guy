@@ -6,10 +6,11 @@ extends Area2D
 var player_near := false
 
 const lines: Array[String] = [
-	"noob",
-	"nooby",
-	"no life",
-	"u suck",
+	"I suggest you go home.",
+	"This is the big guy mountain. Only big guys can climb it.",
+	"And you're too small you're just a tiny little guy.",
+	"But if you do decide to climb it...",
+	"You should try getting big.",
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

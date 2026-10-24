@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b8btkub5pbw4a" path="res://assets/images/menu/exitbutton.png" id="11_4hago"]
 [ext_resource type="Script" uid="uid://d3k4thchhxu57" path="res://scripts/audiocontrol.gd" id="11_gjjcl"]
 [ext_resource type="Texture2D" uid="uid://ch5yont1x7he4" path="res://assets/images/menu/exithover.png" id="12_gjjcl"]
-
+[ext_resource type="AudioStream" uid="uid://cfj7ywhqhbbiq" path="res://sounds/mainmenu.wav" id="14_kait0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hago"]
 atlas = ExtResource("3_85riq")
@@ -125,6 +125,11 @@ offset_bottom = 208.0
 texture_normal = ExtResource("11_4hago")
 texture_pressed = ExtResource("12_gjjcl")
 texture_hover = ExtResource("12_gjjcl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=214616854]
+stream = ExtResource("14_kait0")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="pressed" from="buttonmanager/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="buttonmanager/options" to="." method="_on_options_pressed"]

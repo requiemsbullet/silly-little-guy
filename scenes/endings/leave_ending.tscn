@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ddew7exymojnf"]
+
+[ext_resource type="Script" uid="uid://cgbrd5v270wlt" path="res://scripts/leave_ending.gd" id="1_6mw6h"]
+[ext_resource type="FontFile" uid="uid://ms88s4rw1ehg" path="res://assets/images/menu/Retro Gaming.ttf" id="1_v0u4n"]
+[ext_resource type="AudioStream" uid="uid://b1i5oox3x3aqr" path="res://sounds/leaveending.wav" id="3_8bupj"]
+
+[node name="LeaveEnding" type="Control" unique_id=1741282371]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6mw6h")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=961569476]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1204721463]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_v0u4n")
+text = "you decided to do your own thing
+and leave the big losers on their
+stupid mountain
+
+*GOOD ENDING*"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1328335397]
+stream = ExtResource("3_8bupj")

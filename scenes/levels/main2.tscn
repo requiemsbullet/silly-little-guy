@@ -2,10 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dig8do7les2ia" path="res://scenes/levels/level_1.tscn" id="1_gu4iw"]
 [ext_resource type="PackedScene" uid="uid://la5twl1apw5g" path="res://scenes/player.tscn" id="2_176wj"]
+[ext_resource type="AudioStream" uid="uid://vnm6m2pkijfl" path="res://sounds/parkour.wav" id="3_2a5sk"]
 
 [node name="Node2D" type="Node2D" unique_id=566698368]
 
 [node name="Level1" parent="." unique_id=968191378 instance=ExtResource("1_gu4iw")]
 
-[node name="Player" parent="Level1" unique_id=336984372 groups=["player"] instance=ExtResource("2_176wj")]
-position = Vector2(9, 230)
+[node name="Player" parent="." unique_id=336984372 groups=["player"] instance=ExtResource("2_176wj")]
+position = Vector2(36, 176)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1848063069]
+stream = ExtResource("3_2a5sk")
+volume_db = -5.0
+autoplay = true

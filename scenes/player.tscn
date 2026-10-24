@@ -198,8 +198,8 @@ height = 16.0
 z_index = 2
 collision_layer = 3
 script = ExtResource("1_g2els")
-MAX_OBESITY = 15
-MEDIUM_OBESITY = 7
+MAX_OBESITY = 8
+MEDIUM_OBESITY = 4
 scale_by = Vector2(0.2, 0.2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1021797662]

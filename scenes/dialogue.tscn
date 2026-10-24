@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqpxf7v20uc3q" path="res://scripts/text_box.gd" id="1_bfpow"]
 [ext_resource type="Texture2D" uid="uid://b1h6tww4qhjqh" path="res://assets/images/menu/dialogue_box.png" id="1_jwyou"]
-[ext_resource type="FontFile" uid="uid://ms88s4rw1ehg" path="res://assets/images/menu/Retro Gaming.ttf" id="2_3n4vj"]
+[ext_resource type="FontFile" uid="uid://j67otol6hrmi" path="res://assets/images/menu/PixeloidSans.ttf" id="3_bfpow"]
 
 [node name="MarginContainer" type="MarginContainer" unique_id=1681348172]
 offset_right = 40.0
@@ -26,9 +26,11 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="Label" type="Label" parent="MarginContainer" unique_id=1875442853]
+texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_3n4vj")
+theme_override_fonts/font = ExtResource("3_bfpow")
+theme_override_font_sizes/font_size = 9
 vertical_alignment = 1
 
 [node name="LetterDisplayTimer" type="Timer" parent="." unique_id=1343692450]
