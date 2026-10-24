@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d0ssyoerqgen7"]
+
+[ext_resource type="Script" uid="uid://dqpxf7v20uc3q" path="res://scripts/text_box.gd" id="1_bfpow"]
+[ext_resource type="Texture2D" uid="uid://b1h6tww4qhjqh" path="res://assets/images/menu/dialogue_box.png" id="1_jwyou"]
+[ext_resource type="FontFile" uid="uid://ms88s4rw1ehg" path="res://assets/images/menu/Retro Gaming.ttf" id="2_3n4vj"]
+
+[node name="MarginContainer" type="MarginContainer" unique_id=1681348172]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bfpow")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=526604267]
+layout_mode = 2
+texture = ExtResource("1_jwyou")
+region_rect = Rect2(0, 0, 30, 30)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=640824987]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1875442853]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_3n4vj")
+vertical_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="." unique_id=1343692450]
+one_shot = true
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

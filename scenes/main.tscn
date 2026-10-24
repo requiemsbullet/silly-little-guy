@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bp3v5ib71h2kl" path="res://scenes/level.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://caw2038ntrndm" path="res://scenes/food.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://yd4j01tlq2ho" path="res://assets/images/food/cookie.png" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cwi6ftaavbhnn" path="res://scenes/tallguy.tscn" id="4_jyhfs"]
 
 [node name="main" type="Node2D" unique_id=1278071956]
 
@@ -43,3 +44,6 @@ foodsprite = ExtResource("3_sugp2")
 [node name="food9" parent="." unique_id=219645147 instance=ExtResource("2_0wfyh")]
 position = Vector2(304, 223)
 foodsprite = ExtResource("3_sugp2")
+
+[node name="tallguy" parent="." unique_id=1378372729 instance=ExtResource("4_jyhfs")]
+position = Vector2(61, 240)

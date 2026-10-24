@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://lwl85je2grr8" path="res://assets/images/characters/littleguy_crouch.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://detlv8jj6uqbg" path="res://assets/images/characters/littleguywalsk.png" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://cxnpkh8mbtar2" path="res://sounds/jump.wav" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://d0ghsoqwjbhwa" path="res://sounds/thump.wav" id="5_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
 atlas = ExtResource("2_qlg0r")
@@ -194,6 +195,8 @@ radius = 4.0
 height = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=336984372]
+z_index = 2
+collision_layer = 3
 script = ExtResource("1_g2els")
 MAX_OBESITY = 15
 MEDIUM_OBESITY = 7
@@ -207,6 +210,10 @@ autoplay = "normal_idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1634829497]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_8erm5")
+
+[node name="thump" type="AudioStreamPlayer" parent="." unique_id=123714918]
+stream = ExtResource("5_tuyoq")
+volume_db = -5.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=787953302]
 stream = ExtResource("4_dqkch")

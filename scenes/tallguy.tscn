@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cwi6ftaavbhnn"]
+
+[ext_resource type="Script" uid="uid://dye2ucf7el6e0" path="res://scripts/tallguy.gd" id="1_6asqr"]
+[ext_resource type="Texture2D" uid="uid://cpalytryhaojx" path="res://assets/images/characters/notsolittleguy.png" id="1_syejs"]
+[ext_resource type="Texture2D" uid="uid://bri6qyofdcprj" path="res://assets/images/menu/interaction_box.png" id="2_nickm"]
+[ext_resource type="AudioStream" uid="uid://d2x05dao8ts6i" path="res://sounds/talkbeep.wav" id="4_scgk8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6asqr"]
+atlas = ExtResource("1_syejs")
+region = Rect2(0, 0, 18, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nickm"]
+atlas = ExtResource("1_syejs")
+region = Rect2(18, 0, 18, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6asqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nickm")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scgk8"]
+size = Vector2(40.5, 62.5)
+
+[node name="tallguy" type="Area2D" unique_id=1378372729]
+script = ExtResource("1_6asqr")
+
+[node name="InteractionBox" type="Sprite2D" parent="." unique_id=776836527]
+position = Vector2(0, -68)
+scale = Vector2(0.31666666, 0.31666666)
+texture = ExtResource("2_nickm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=360092050]
+z_index = 1
+position = Vector2(-1, -31)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1944841174]
+position = Vector2(-0.25, -31)
+shape = SubResource("RectangleShape2D_scgk8")
+
+[node name="beep" type="AudioStreamPlayer" parent="." unique_id=1217694064]
+stream = ExtResource("4_scgk8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
