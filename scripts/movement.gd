@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -300.0
 
 var appearence := "normal"
 var obesity := 0
+var is_crouching := false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var MAX_OBESITY : int
 @export var MEDIUM_OBESITY: int
@@ -41,6 +42,10 @@ func _ready() -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
+	
+	#crouching
+	is_crouching = true if Input.is_action_pressed("crouch") and is_on_floor() else false
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -48,17 +53,26 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		$AudioStreamPlayer.play()
-		velocity.y = JUMP_VELOCITY + obesity * MAX_OBESITY
+		velocity.y = JUMP_VELOCITY + obesity + MAX_OBESITY
 		await $AudioStreamPlayer.finished
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction != 0:
-		velocity.x = direction * (SPEED - obesity * MAX_OBESITY)
+		velocity.x = direction * (SPEED - obesity + MAX_OBESITY)
 		sprite.play(appearence + "_walk")
 		sprite.flip_h = direction < 0
 	else:
 		sprite.play(appearence + "_idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	if is_crouching:
+		velocity.x = velocity.x / 3
+		sprite.play(appearence + "_crouch")
+	elif direction != 0:
+		sprite.play(appearence + "_walk")
+	else:
+		sprite.play(appearence + "_idle")
 
 	move_and_slide()

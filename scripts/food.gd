@@ -15,6 +15,10 @@ func _process(_delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("grow"):
 		body.grow()
+		set_deferred("monitoring", false)
+		var tween = create_tween()
+		tween.tween_property(self, "modulate:a", 0.0,0.1)
 		$AudioStreamPlayer2D.play()
+		await tween.finished
 		await $AudioStreamPlayer2D.finished
 		queue_free()

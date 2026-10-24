@@ -11,8 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cxsv2ugecwube" path="res://assets/images/menu/quithover.png" id="7_dfy5j"]
 [ext_resource type="Texture2D" uid="uid://dqeujo7c1gmdo" path="res://assets/images/menu/optionsmenu.png" id="10_h73c4"]
 [ext_resource type="Texture2D" uid="uid://b8btkub5pbw4a" path="res://assets/images/menu/exitbutton.png" id="11_4hago"]
-[ext_resource type="Script" uid="uid://d3k4thchhxu57" path="res://scenes/audiocontrol.gd" id="11_gjjcl"]
+[ext_resource type="Script" uid="uid://d3k4thchhxu57" path="res://scripts/audiocontrol.gd" id="11_gjjcl"]
 [ext_resource type="Texture2D" uid="uid://ch5yont1x7he4" path="res://assets/images/menu/exithover.png" id="12_gjjcl"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hago"]
 atlas = ExtResource("3_85riq")
