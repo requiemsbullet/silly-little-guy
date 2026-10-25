@@ -94,6 +94,7 @@ text = "STORY
 requiemsbullet
 KlownEris"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="sections" type="MarginContainer" parent="ColorRect/sections" unique_id=2081957767]
 layout_mode = 2
