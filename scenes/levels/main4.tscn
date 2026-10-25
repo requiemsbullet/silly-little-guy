@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://byfutxcpd0l6d" path="res://pausemenu.tscn" id="3_pooci"]
 [ext_resource type="PackedScene" uid="uid://4r70as17lpxc" path="res://scenes/levels/level_3.tscn" id="4_suche"]
 [ext_resource type="PackedScene" uid="uid://caw2038ntrndm" path="res://scenes/food.tscn" id="5_vigcw"]
+[ext_resource type="PackedScene" uid="uid://bjbsq0lhnh5pv" path="res://scenes/muscleguy.tscn" id="6_pooci"]
 
 [node name="Node2D" type="Node2D" unique_id=549133655]
 
 [node name="Player" parent="." unique_id=336984372 groups=["player"] instance=ExtResource("1_hna2c")]
-position = Vector2(11, 34)
+position = Vector2(11, 36.5)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=236144823]
 stream = ExtResource("2_vigcw")
@@ -35,3 +36,6 @@ foodsprite = 3
 [node name="food2" parent="." unique_id=383186022 instance=ExtResource("5_vigcw")]
 position = Vector2(353, 56)
 foodsprite = 4
+
+[node name="muscleguy" parent="." unique_id=637701469 instance=ExtResource("6_pooci")]
+position = Vector2(217, 169)

@@ -8,7 +8,7 @@
 [node name="Node2D" type="Node2D" unique_id=887251237]
 
 [node name="Player" parent="." unique_id=336984372 groups=["player"] instance=ExtResource("1_8upqq")]
-position = Vector2(13, 99)
+position = Vector2(13, 115.96)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1339422392]
 stream = ExtResource("2_j535p")
@@ -17,6 +17,7 @@ autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=595396817]
 layer = 10
+visible = false
 
 [node name="pausemenu" parent="CanvasLayer" unique_id=1216540044 instance=ExtResource("3_66w1l")]
 offset_top = -1.0
@@ -24,3 +25,4 @@ offset_bottom = -1.0
 metadata/_edit_use_anchors_ = true
 
 [node name="level_2" parent="." unique_id=968191378 instance=ExtResource("4_t5uju")]
+position = Vector2(-3, 34)

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://buxarsuo785gr"]
+
+[ext_resource type="Script" uid="uid://cuhviy26l7qun" path="res://scripts/killtroll.gd" id="1_4jjtt"]
+[ext_resource type="Texture2D" uid="uid://b4k2y3i0br1lp" path="res://assets/images/characters/fatty.png" id="1_ecgr0"]
+[ext_resource type="AudioStream" uid="uid://db2swc3jmt83t" path="res://sounds/outofmyway.wav" id="3_ij4bd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buk8b"]
+size = Vector2(24, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jjtt"]
+atlas = ExtResource("1_ecgr0")
+region = Rect2(0, 0, 28, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij4bd"]
+atlas = ExtResource("1_ecgr0")
+region = Rect2(28, 0, 28, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft5vm"]
+atlas = ExtResource("1_ecgr0")
+region = Rect2(56, 0, 28, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhy3x"]
+atlas = ExtResource("1_ecgr0")
+region = Rect2(84, 0, 28, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jjtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij4bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft5vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhy3x")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="killtroll" type="CharacterBody2D" unique_id=1084843639]
+script = ExtResource("1_4jjtt")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1147476012]
+shape = SubResource("RectangleShape2D_buk8b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=222976306]
+position = Vector2(-1, -0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=448220517]
+shape = SubResource("RectangleShape2D_buk8b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1927635490]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame = 3
+frame_progress = 0.9982986
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1548239862]
+stream = ExtResource("3_ij4bd")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

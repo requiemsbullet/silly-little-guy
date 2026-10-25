@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+class_name Player
 const SPEED = 180.0
 const JUMP_VELOCITY = -300.0
 
@@ -62,32 +62,61 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY + obesity * 10
 		await $AudioStreamPlayer.finished
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left", "right")
-	if direction != 0:
-		velocity.x = direction * (SPEED - obesity * 13)
-		sprite.play(appearence + "_walk")
-		sprite.flip_h = direction < 0
+	if !GameState.obese_ending:
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction := Input.get_axis("left", "right")
+		if direction != 0:
+			velocity.x = direction * (SPEED - obesity * 13)
+			sprite.play(appearence + "_walk")
+			sprite.flip_h = direction < 0
+		else:
+			sprite.play(appearence + "_idle")
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		if is_crouching:
+			velocity.x = velocity.x / 3
+			sprite.play(appearence + "_crouch")
+		elif direction != 0:
+			sprite.play(appearence + "_walk")
+		else:
+			sprite.play(appearence + "_idle")
+		if DialogueManager.is_dialog_active:
+			velocity.x = 0
+			sprite.play(appearence + "_idle")
+		if SceneTransition.tp:
+			velocity.x = 0
+			sprite.play(appearence + "_idle")
 	else:
-		sprite.play(appearence + "_idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if is_crouching:
-		velocity.x = velocity.x / 3
-		sprite.play(appearence + "_crouch")
-	elif direction != 0:
-		sprite.play(appearence + "_walk")
-	else:
-		sprite.play(appearence + "_idle")
-	if DialogueManager.is_dialog_active:
-		velocity.x = 0
-		sprite.play(appearence + "_idle")
-	if SceneTransition.tp:
-		velocity.x = 0
-		sprite.play(appearence + "_idle")
-	
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction := Input.get_axis("left", "right")
+		if direction != 0:
+			velocity.x = direction * (SPEED + obesity * 13)
+			sprite.play(appearence + "_walk")
+			sprite.flip_h = direction < 0
+		else:
+			sprite.play(appearence + "_idle")
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		if is_crouching:
+			velocity.x = velocity.x / 3
+			sprite.play(appearence + "_crouch")
+		elif direction != 0:
+			sprite.play(appearence + "_walk")
+		else:
+			sprite.play(appearence + "_idle")
+		if DialogueManager.is_dialog_active:
+			velocity.x = 0
+			sprite.play(appearence + "_idle")
+		if SceneTransition.tp:
+			velocity.x = 0
+			sprite.play(appearence + "_idle")
 	move_and_slide()
+	
+	if Input.is_action_pressed("reset"):
+		GameState.obesity = 0
+		get_tree().change_scene_to_file("res://scenes/levels/main.tscn")
 	
 	if is_on_floor() and not was_on_floor and obesity >= MEDIUM_OBESITY:
 		$thump.pitch_scale = 0.6 if appearence == "obese" else 1.0

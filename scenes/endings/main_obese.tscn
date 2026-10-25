@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bpgehki6fccw1"]
+
+[ext_resource type="PackedScene" uid="uid://la5twl1apw5g" path="res://scenes/player.tscn" id="1_p656r"]
+[ext_resource type="Script" uid="uid://cxqegvlmkhqiv" path="res://scripts/obeseending.gd" id="1_r48xm"]
+[ext_resource type="AudioStream" uid="uid://byqxqktsowcid" path="res://sounds/bigguy.wav" id="2_d85l8"]
+[ext_resource type="PackedScene" uid="uid://byfutxcpd0l6d" path="res://pausemenu.tscn" id="2_glmyo"]
+[ext_resource type="PackedScene" uid="uid://df34c5fao5agi" path="res://scenes/endings/level_obese.tscn" id="2_r48xm"]
+[ext_resource type="PackedScene" uid="uid://ch3ltccwhycxg" path="res://scenes/exploding_sprite.tscn" id="6_hh77k"]
+
+[node name="main_obese" type="Node2D" unique_id=1761835666]
+script = ExtResource("1_r48xm")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1691955227]
+stream = ExtResource("2_d85l8")
+volume_db = -5.0
+autoplay = true
+
+[node name="Player" parent="." unique_id=336984372 groups=["player"] instance=ExtResource("1_p656r")]
+position = Vector2(253, 171)
+collision_mask = 3
+floor_snap_length = 12.0
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=505372685]
+
+[node name="level_obese" parent="." unique_id=343684675 instance=ExtResource("2_r48xm")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=310793769]
+layer = 10
+
+[node name="pausemenu" parent="CanvasLayer" unique_id=1216540044 instance=ExtResource("2_glmyo")]
+visible = false
+offset_top = -1.0
+offset_bottom = -1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=466180786]
+offset_left = -945.0
+offset_top = -492.0
+offset_right = 2494.0
+offset_bottom = 1626.0
+color = Color(1, 1, 1, 0.23921569)
+
+[node name="enemies" type="Node" parent="." unique_id=2086331184]
+
+[node name="exploding_sprite" parent="enemies" unique_id=672447084 instance=ExtResource("6_hh77k")]
+position = Vector2(346, 203)
+
+[node name="exploding_sprite2" parent="enemies" unique_id=147966459 instance=ExtResource("6_hh77k")]
+position = Vector2(388, 203)
+sprite = "girl"
+
+[node name="exploding_sprite3" parent="enemies" unique_id=1887522783 instance=ExtResource("6_hh77k")]
+position = Vector2(427, 220)
+sprite = "muscle"
+
+[node name="exploding_sprite4" parent="enemies" unique_id=109225489 instance=ExtResource("6_hh77k")]
+position = Vector2(466, 253)
+sprite = "tall"
+
+[node name="exploding_sprite5" parent="enemies" unique_id=1754953987 instance=ExtResource("6_hh77k")]
+position = Vector2(515, 300)
+sprite = "tall"
+
+[node name="exploding_sprite6" parent="enemies" unique_id=1652978407 instance=ExtResource("6_hh77k")]
+position = Vector2(560, 349)
+sprite = "muscle"
+
+[node name="exploding_sprite7" parent="enemies" unique_id=664290029 instance=ExtResource("6_hh77k")]
+position = Vector2(610, 395)
+sprite = "muscle"
+
+[node name="exploding_sprite8" parent="enemies" unique_id=1939340749 instance=ExtResource("6_hh77k")]
+position = Vector2(654, 443)
+sprite = "tall"
+
+[node name="exploding_sprite9" parent="enemies" unique_id=1186632046 instance=ExtResource("6_hh77k")]
+position = Vector2(700, 492)
+
+[node name="exploding_sprite10" parent="enemies" unique_id=116103611 instance=ExtResource("6_hh77k")]
+position = Vector2(754, 537)
+sprite = "girl"
+
+[node name="exploding_sprite11" parent="enemies" unique_id=730899526 instance=ExtResource("6_hh77k")]
+position = Vector2(793, 575)
+sprite = "muscle"
+
+[node name="exploding_sprite12" parent="enemies" unique_id=2096587055 instance=ExtResource("6_hh77k")]
+position = Vector2(852, 636)
+sprite = "muscle"
+
+[node name="exploding_sprite13" parent="enemies" unique_id=226586866 instance=ExtResource("6_hh77k")]
+position = Vector2(899, 687)
+sprite = "muscle"
+
+[node name="exploding_sprite14" parent="enemies" unique_id=395564240 instance=ExtResource("6_hh77k")]
+position = Vector2(1003, 789)
+sprite = "tall"
+
+[node name="exploding_sprite15" parent="enemies" unique_id=1765574530 instance=ExtResource("6_hh77k")]
+position = Vector2(955, 743)
+
+[node name="exploding_sprite16" parent="enemies" unique_id=1393857897 instance=ExtResource("6_hh77k")]
+position = Vector2(1039, 823)
+sprite = "tall"
+
+[node name="exploding_sprite17" parent="enemies" unique_id=724455902 instance=ExtResource("6_hh77k")]
+position = Vector2(1086, 868)
+sprite = "tall"

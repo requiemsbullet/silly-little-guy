@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://haytvwjao5oc"]
+
+[ext_resource type="Texture2D" uid="uid://bri6qyofdcprj" path="res://assets/images/menu/interaction_box.png" id="1_6uxer"]
+[ext_resource type="Script" uid="uid://2oe6uxpcjlvd" path="res://scripts/noobend_dialog.gd" id="1_deq30"]
+[ext_resource type="Texture2D" uid="uid://cpalytryhaojx" path="res://assets/images/characters/notsolittleguy.png" id="3_deq30"]
+[ext_resource type="AudioStream" uid="uid://d2x05dao8ts6i" path="res://sounds/talkbeep.wav" id="3_x80lr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x80lr"]
+atlas = ExtResource("3_deq30")
+region = Rect2(0, 0, 18, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahywf"]
+atlas = ExtResource("3_deq30")
+region = Rect2(18, 0, 18, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ahywf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x80lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahywf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eejdd"]
+size = Vector2(40.5, 44.25)
+
+[node name="noobend" type="Area2D" unique_id=1883093054]
+script = ExtResource("1_deq30")
+
+[node name="InteractionBox" type="Sprite2D" parent="." unique_id=1142446716]
+position = Vector2(1, -58.000004)
+scale = Vector2(0.31666666, 0.31666666)
+texture = ExtResource("1_6uxer")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=963671983]
+position = Vector2(0, -21)
+sprite_frames = SubResource("SpriteFrames_ahywf")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651470116]
+position = Vector2(-0.25, -21.875)
+shape = SubResource("RectangleShape2D_eejdd")
+
+[node name="beep" type="AudioStreamPlayer" parent="." unique_id=107761139]
+stream = ExtResource("3_x80lr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://djw2dbc1lftrs"]
+
+[ext_resource type="Script" uid="uid://bwrjgvetpf7sl" path="res://scripts/roomswitches/skilodge.gd" id="1_kq03q"]
+[ext_resource type="Texture2D" uid="uid://bri6qyofdcprj" path="res://assets/images/menu/interaction_box.png" id="2_nn55b"]
+[ext_resource type="Texture2D" uid="uid://c2uxu2p54wfho" path="res://assets/images/tiles/skilodge.png" id="3_kq03q"]
+[ext_resource type="AudioStream" uid="uid://v6csygsnpa1b" path="res://sounds/nomnomnom.wav" id="4_nn55b"]
+[ext_resource type="AudioStream" uid="uid://d2x05dao8ts6i" path="res://sounds/talkbeep.wav" id="4_p7r6v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn55b"]
+atlas = ExtResource("3_kq03q")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn55b")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.7
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scgk8"]
+size = Vector2(233, 194)
+
+[node name="skilodge" type="Area2D" unique_id=637701469]
+script = ExtResource("1_kq03q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=807183029]
+position = Vector2(-4, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.04404636
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=731142090]
+position = Vector2(3.5, 1)
+shape = SubResource("RectangleShape2D_scgk8")
+
+[node name="InteractionBox" type="Sprite2D" parent="." unique_id=1158429384]
+position = Vector2(-3, -116)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_nn55b")
+
+[node name="beep2" type="AudioStreamPlayer" parent="." unique_id=1880698505]
+stream = ExtResource("4_nn55b")
+
+[node name="beep" type="AudioStreamPlayer" parent="." unique_id=1557438674]
+stream = ExtResource("4_p7r6v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

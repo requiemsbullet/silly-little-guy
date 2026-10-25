@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ctljdygybuqr5"]
+
+[ext_resource type="PackedScene" uid="uid://la5twl1apw5g" path="res://scenes/player.tscn" id="1_grmlr"]
+[ext_resource type="PackedScene" uid="uid://byfutxcpd0l6d" path="res://pausemenu.tscn" id="3_6lrmi"]
+[ext_resource type="PackedScene" uid="uid://b8gk3338y2ta" path="res://scenes/levels/level_5.tscn" id="4_u2nmd"]
+[ext_resource type="PackedScene" uid="uid://djw2dbc1lftrs" path="res://scenes/levels/skilodge.tscn" id="5_grmlr"]
+[ext_resource type="PackedScene" uid="uid://caw2038ntrndm" path="res://scenes/food.tscn" id="5_yoftp"]
+
+[node name="main_6" type="Node2D" unique_id=549133655]
+
+[node name="Player" parent="." unique_id=336984372 groups=["player"] instance=ExtResource("1_grmlr")]
+position = Vector2(64, 225)
+collision_mask = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=948704601]
+layer = 10
+
+[node name="pausemenu" parent="CanvasLayer" unique_id=1216540044 instance=ExtResource("3_6lrmi")]
+visible = false
+offset_top = -1.0
+offset_bottom = -1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="level_5" parent="." unique_id=1921877424 instance=ExtResource("4_u2nmd")]
+
+[node name="food2" parent="." unique_id=383186022 instance=ExtResource("5_yoftp")]
+position = Vector2(144, 199)
+scale = Vector2(2, 2)
+foodsprite = 7
+
+[node name="skilodge" parent="." unique_id=637701469 instance=ExtResource("5_grmlr")]
+position = Vector2(296, 144)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=346617135]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 489.0
+offset_bottom = 270.0
+color = Color(1, 1, 1, 0.23921569)

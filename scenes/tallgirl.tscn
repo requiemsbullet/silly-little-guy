@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://f4pv77ritnq7"]
+
+[ext_resource type="Script" uid="uid://5wrhhj8qiigy" path="res://scripts/tallgirl.gd" id="1_knqve"]
+[ext_resource type="Texture2D" uid="uid://bri6qyofdcprj" path="res://assets/images/menu/interaction_box.png" id="2_4ynif"]
+[ext_resource type="Texture2D" uid="uid://b16663t1tgmqd" path="res://assets/images/characters/tall girl.png" id="3_knqve"]
+[ext_resource type="AudioStream" uid="uid://d2x05dao8ts6i" path="res://sounds/talkbeep.wav" id="4_0osg3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scgk8"]
+size = Vector2(58, 87.25)
+
+[node name="tallgirl" type="Area2D" unique_id=637701469]
+script = ExtResource("1_knqve")
+
+[node name="InteractionBox" type="Sprite2D" parent="." unique_id=1158429384]
+position = Vector2(0, -49.000008)
+scale = Vector2(0.31666666, 0.31666666)
+texture = ExtResource("2_4ynif")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=1387851338]
+texture = ExtResource("3_knqve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=731142090]
+shape = SubResource("RectangleShape2D_scgk8")
+
+[node name="beep" type="AudioStreamPlayer" parent="." unique_id=1557438674]
+stream = ExtResource("4_0osg3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

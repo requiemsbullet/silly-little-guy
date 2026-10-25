@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://dbrhhli5n7x5x"]
+
+[ext_resource type="FontFile" uid="uid://j67otol6hrmi" path="res://assets/images/menu/PixeloidSans.ttf" id="1_n2qfq"]
+[ext_resource type="Texture2D" uid="uid://detlv8jj6uqbg" path="res://assets/images/characters/littleguywalsk.png" id="2_t4u2i"]
+[ext_resource type="Script" uid="uid://dtdw27te8cgl8" path="res://scenes/endings/button.gd" id="3_jqgl5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqgl5"]
+atlas = ExtResource("2_t4u2i")
+region = Rect2(0, 0, 14, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uyll"]
+atlas = ExtResource("2_t4u2i")
+region = Rect2(14, 0, 14, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alon2"]
+atlas = ExtResource("2_t4u2i")
+region = Rect2(28, 0, 14, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqgl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uyll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alon2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Control" type="Control" unique_id=1888137639]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1816655184]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="sections" type="MarginContainer" parent="ColorRect" unique_id=1376467342]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -95.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="ColorRect/sections" unique_id=1116500522]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n2qfq")
+theme_override_font_sizes/font_size = 18
+text = "SPRITES
+KlownEris
+requiemsbullet
+
+CODE
+KlownEris
+requiemsbullet"
+
+[node name="sections2" type="MarginContainer" parent="ColorRect/sections" unique_id=1244097923]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="ColorRect/sections/sections2" unique_id=2099223921]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n2qfq")
+theme_override_font_sizes/font_size = 18
+text = "STORY
+requiemsbullet
+KlownEris"
+horizontal_alignment = 2
+
+[node name="sections" type="MarginContainer" parent="ColorRect/sections" unique_id=2081957767]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="ColorRect/sections/sections" unique_id=1664417144]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n2qfq")
+theme_override_font_sizes/font_size = 18
+text = "MENUS
+requiemsbullet
+
+SOUNDS/MUSIC
+(organically made)
+KlownEris"
+horizontal_alignment = 1
+
+[node name="credits" type="MarginContainer" parent="ColorRect" unique_id=2076342435]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="ColorRect/credits" unique_id=2068481643]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_n2qfq")
+theme_override_font_sizes/font_size = 18
+text = "CREDITS"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect" unique_id=386462201]
+position = Vector2(239, 240)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.4350583
+
+[node name="credits" type="MarginContainer" parent="." unique_id=753750685]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 44
+theme_override_constants/margin_bottom = 22
+
+[node name="Button" type="Button" parent="credits" unique_id=16671149]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8745098, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_n2qfq")
+theme_override_font_sizes/font_size = 18
+text = "QUIT"
+script = ExtResource("3_jqgl5")
+
+[connection signal="pressed" from="credits/Button" to="credits/Button" method="_on_pressed"]

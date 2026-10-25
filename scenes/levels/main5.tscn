@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://daf6hs320u2i4"]
+
+[ext_resource type="PackedScene" uid="uid://la5twl1apw5g" path="res://scenes/player.tscn" id="1_tw6wj"]
+[ext_resource type="AudioStream" uid="uid://vnm6m2pkijfl" path="res://sounds/parkour.wav" id="2_v6m6g"]
+[ext_resource type="PackedScene" uid="uid://byfutxcpd0l6d" path="res://pausemenu.tscn" id="3_eeoc1"]
+[ext_resource type="PackedScene" uid="uid://copdss371o8gb" path="res://scenes/levels/level_4.tscn" id="4_1ui4o"]
+[ext_resource type="PackedScene" uid="uid://caw2038ntrndm" path="res://scenes/food.tscn" id="5_72ey4"]
+[ext_resource type="Texture2D" uid="uid://dy5fiu8vwianc" path="res://assets/images/menu/snow.png" id="6_v6m6g"]
+
+[node name="main_5" type="Node2D" unique_id=549133655]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=332192675]
+stream = ExtResource("2_v6m6g")
+volume_db = -5.0
+autoplay = true
+
+[node name="Player" parent="." unique_id=336984372 groups=["player"] instance=ExtResource("1_tw6wj")]
+position = Vector2(28.12, 211.135)
+collision_mask = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=948704601]
+layer = 10
+
+[node name="pausemenu" parent="CanvasLayer" unique_id=1216540044 instance=ExtResource("3_eeoc1")]
+visible = false
+offset_top = -1.0
+offset_bottom = -1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="level_4" parent="." unique_id=1062252472 instance=ExtResource("4_1ui4o")]
+
+[node name="food2" parent="." unique_id=383186022 instance=ExtResource("5_72ey4")]
+position = Vector2(358, 202)
+foodsprite = 5
+
+[node name="food3" parent="." unique_id=1584939598 instance=ExtResource("5_72ey4")]
+position = Vector2(15, 36)
+foodsprite = 6
+
+[node name="snow" type="CPUParticles2D" parent="." unique_id=1380848286]
+position = Vector2(278.035, 0)
+amount = 80
+texture = ExtResource("6_v6m6g")
+lifetime = 10.0
+speed_scale = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(280, 1)
+direction = Vector2(100, 1)
+spread = 91.64
+gravity = Vector2(0, 300)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+angular_velocity_max = 169.4
+linear_accel_min = -67.33
+scale_amount_max = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=346617135]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 489.0
+offset_bottom = 270.0
+color = Color(1, 1, 1, 0.050980393)

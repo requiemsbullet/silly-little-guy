@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dnpreu4sluko5"]
+
+[ext_resource type="Texture2D" uid="uid://yaupbn0etrb1" path="res://assets/images/menu/evilending.png" id="1_cfq3e"]
+[ext_resource type="PackedScene" uid="uid://haytvwjao5oc" path="res://scenes/noobend_dialog.tscn" id="2_8d8lw"]
+[ext_resource type="AudioStream" uid="uid://l3y64dv8270s" path="res://sounds/laugh.wav" id="3_0rh5o"]
+
+[node name="noobend" type="Control" unique_id=1257438353]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=610916117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Evilending" type="Sprite2D" parent="." unique_id=860863155]
+position = Vector2(242, 133.5)
+scale = Vector2(1, 1.0111111)
+texture = ExtResource("1_cfq3e")
+
+[node name="noobend" parent="." unique_id=1883093054 instance=ExtResource("2_8d8lw")]
+position = Vector2(236, 322)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1292511279]
+stream = ExtResource("3_0rh5o")
+autoplay = true
