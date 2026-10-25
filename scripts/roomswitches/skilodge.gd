@@ -31,6 +31,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			SceneTransition.change_scene_file("res://scenes/endings/fatending.tscn")
 		elif player_near and obs >= 1:
 			SceneTransition.change_scene_file("res://scenes/endings/noobend.tscn")
+		elif player_near and obs == 0:
+			get_tree().quit()
 			
 			
 			
